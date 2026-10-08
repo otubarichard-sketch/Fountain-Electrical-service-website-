@@ -68,3 +68,51 @@
     height: 300px;
   }
 }
+
+/* Service watermarks: subtle technical visuals tied to each service */
+.service-cards {
+  grid-template-columns:repeat(3,1fr);
+}
+.service-card {
+  position:relative;
+  overflow:hidden;
+  min-height:270px;
+  isolation:isolate;
+}
+.service-card > *:not(.service-watermark) {
+  position:relative;
+  z-index:2;
+}
+.service-watermark {
+  position:absolute;
+  right:-12px;
+  bottom:-34px;
+  z-index:1;
+  font-family:Arial,sans-serif;
+  font-size:150px;
+  line-height:1;
+  font-weight:400;
+  color:#16834a;
+  opacity:.065;
+  transform:rotate(-8deg);
+  pointer-events:none;
+  user-select:none;
+}
+.electrical-service .service-watermark {font-size:170px;right:-5px;bottom:-45px;transform:rotate(8deg)}
+.circuit-service .service-watermark {font-size:190px;right:-18px;bottom:-55px;transform:rotate(-4deg)}
+.fault-service .service-watermark {font-size:170px;right:0;bottom:-38px;transform:rotate(-10deg)}
+.earthing-service .service-watermark {font-size:180px;right:-12px;bottom:-45px;transform:rotate(0deg)}
+.layout-service .service-watermark {font-size:175px;right:-12px;bottom:-42px;transform:rotate(-7deg)}
+.maintenance-service .service-watermark {font-size:155px;right:-5px;bottom:-30px;transform:rotate(8deg)}
+.service-card:hover .service-watermark {
+  opacity:.10;
+  transform:scale(1.04) rotate(-8deg);
+  transition:opacity .25s ease,transform .25s ease;
+}
+@media(max-width:850px) {
+  .service-cards {grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px) {
+  .service-cards {grid-template-columns:1fr}
+  .service-card {min-height:250px}
+}
