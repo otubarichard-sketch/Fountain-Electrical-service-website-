@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.fountainelectrical.com/sitemap.xml
+Sitemap: https://website-fes-nu.vercel.app/sitemap.xml
